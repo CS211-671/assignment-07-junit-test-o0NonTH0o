@@ -47,4 +47,16 @@ class StudentListTest {
         studentList.giveScoreToId("6610450790", 10);
         assertEquals(10, studentList.findStudentById("6610450790").getScore());
     }
+
+    @Test
+    @DisplayName("Test view grade of ID")
+    void testViewGradeOfID() {
+        studentList.addNewStudent("6610450790", "Non");
+        studentList.addNewStudent("6610456789", "Mo");
+        studentList.giveScoreToId("6610450790", 80);
+        studentList.giveScoreToId("6610456789", 70);
+        assertEquals("A", studentList.viewGradeOfId("6610450790"));
+        assertEquals("B", studentList.viewGradeOfId("6610456789"));
+    }
+
 }
